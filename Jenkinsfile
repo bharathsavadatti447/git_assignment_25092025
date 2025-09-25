@@ -43,7 +43,8 @@ pipeline {
             emailext(
                 subject: "Build Unstable: ${env.JOB_NAME} [#${env.BUILD_NUMBER}]",
                 body: """<p>Build became <b>UNSTABLE</b> in job <b>${env.JOB_NAME}</b> [#${env.BUILD_NUMBER}]</p>""",
-                recipientProviders: [[$class: 'DevelopersRecipientProvider']]
+                recipientProviders: [[$class: 'DevelopersRecipientProvider']],
+                to: "bharath.savadatti447@gmail.com"
             )
         }
         failure {
@@ -51,7 +52,8 @@ pipeline {
             emailext(
                 subject: "Build Failed: ${env.JOB_NAME} [#${env.BUILD_NUMBER}]",
                 body: """<p>Build failed in job <b>${env.JOB_NAME}</b> [#${env.BUILD_NUMBER}]</p>""",
-                recipientProviders: [[$class: 'DevelopersRecipientProvider']]
+                recipientProviders: [[$class: 'DevelopersRecipientProvider']],
+                to: "bharath.savadatti447@gmail.com"
             )
         }
     }
