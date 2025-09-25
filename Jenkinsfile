@@ -26,6 +26,7 @@ pipeline {
                 sh 'dos2unix build.sh'
                 sh 'chmod +x build.sh'
                 sh './build.sh'
+                archiveArtifacts artifacts: 'myfirmware.*', fingerprint: true
             }
         }
     }
