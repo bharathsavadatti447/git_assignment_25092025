@@ -8,7 +8,6 @@ cd "$SCRIPT_DIR"
 # Create and enter build directory
 mkdir -p build
 cd build
-lm
 
 # Run cmake on the parent folder
 cmake ..
