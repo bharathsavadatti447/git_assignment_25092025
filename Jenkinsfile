@@ -6,13 +6,14 @@ pipeline {
         BRANCH   = 'master'
     }
     
-    stages {
-        stage('Clean Workspace') {
-            steps {
-                echo 'Cleaning workspace'
-                deleteDir()
-            }
-        }
+    stage('Build') {
+    steps {
+        sh 'dos2unix build.sh'
+        sh 'chmod +x build.sh'
+        sh './build.sh'
+        archiveArtifacts artifacts: 'build/myfirmware.*', fingerprint: true
+    }
+}
         stage('Lint') {
             steps {
                 echo "Cloning the repo from Github ........."
