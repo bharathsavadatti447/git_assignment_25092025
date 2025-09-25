@@ -6,8 +6,9 @@ SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 cd "$SCRIPT_DIR"
 
 # Create and enter build directory
-
+mkdir -p build
 cd build
+lm
 
 # Run cmake on the parent folder
 cmake ..
