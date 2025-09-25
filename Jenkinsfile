@@ -2,8 +2,8 @@ pipeline {
     agent { label 'linuxgit' }
 
     environment {
-        GIT_REPO = 'https://gitlab.com/sandeep160/pipeline-e2e.git'
-        BRANCH = 'main'
+        GIT_REPO = 'https://github.com/bharathsavadatti447/git_assignment_25092025.git'
+        BRANCH = 'master'
     }
     
     stages {
@@ -15,10 +15,10 @@ pipeline {
         }
         stage('Lint') {
             steps {
-                echo "Cloning the repo from Gitlab ........."
+                echo "Cloning the repo from Github ........."
                 git branch: "${BRANCH}",
                     url: "${GIT_REPO}",
-                    credentialsId: 'gitlab'
+                    credentialsId: 'a5e5c631-8e24-48ee-9844-ea7c8b7a658d'
             }
         }
         stage('Build') {
