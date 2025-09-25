@@ -3,13 +3,13 @@ pipeline {
 
     environment {
         GIT_REPO = 'https://github.com/bharathsavadatti447/git_assignment_25092025.git'
-        BRANCH = 'master'
+        BRANCH   = 'master'
     }
     
     stages {
         stage('Clean Workspace') {
             steps {
-                echo 'CLeaning workspace'
+                echo 'Cleaning workspace'
                 deleteDir()
             }
         }
@@ -25,13 +25,15 @@ pipeline {
             steps {
                 sh 'dos2unix build.sh'
                 sh 'chmod +x build.sh'
-                sh 'bash build.sh'
+                sh './build.sh'
             }
         }
     }
-}
-post {
+
+    post {
         always {
+            echo 'Pipeline finished (success/failure/unstable).'
+        }
         unstable {
             echo 'Build marked as UNSTABLE!'
             emailext (
